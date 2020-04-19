@@ -18,9 +18,11 @@ import android.widget.Toast;
 import com.mirea.informatics.R;
 
 import java.util.regex.Pattern;
-
+import com.mirea.informatics.stats.Userdata;
 public class RegisterFragment extends Fragment {
     private boolean REG_SUCCESS = true;
+
+    Userdata Userdata;
 
     private EditText mail, password, password2, name, group;
     private String name_str, group_str, password_str, password2_str, mail_str;
@@ -60,11 +62,6 @@ public class RegisterFragment extends Fragment {
         });
     }
 
-    /*public void changeScreen(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-    }*/
-
 
     /*@Override
     public void onBackPressed() {
@@ -98,6 +95,8 @@ public class RegisterFragment extends Fragment {
     }
 
     private void sendRegData(){
+        Userdata.sendReg(mail_str, password_str, group_str);
+        Userdata.getStatus();
         // TODO: Отправка данных для регистрации на сервер
     }
 

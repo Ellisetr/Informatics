@@ -22,8 +22,11 @@ import android.widget.Toast;
 
 import com.mirea.informatics.MainActivity;
 import com.mirea.informatics.R;
+import com.mirea.informatics.stats.Userdata;
 
 public class LoginFragment extends Fragment {
+
+    Userdata Userdata;
 
     private boolean LOGIN_SUCCESS = true;
     private boolean valid;
@@ -90,6 +93,9 @@ public class LoginFragment extends Fragment {
     }
 
     public void sendLoginData(){
+        Userdata.setLogin(mail_str, password_str);
+        Userdata.sendLogin();
+        Userdata.getStatus();
         //Отправка mail_str и password_str на сервер для валидации и потом присвоение LOGIN_SUCCESS необходимого значения
     }
 

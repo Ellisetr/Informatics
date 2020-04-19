@@ -34,7 +34,8 @@ public class BookFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         myWebView = (WebView) getActivity().findViewById(R.id.bookreader);
+        myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.setWebViewClient(new WebViewClient());
-        myWebView.loadUrl("https://www.google.com");
+        myWebView.loadUrl("file:///android_asset/test.html");
     }
 }

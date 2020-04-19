@@ -22,8 +22,9 @@ public class EmailFragment extends Fragment {
 
     private EditText oldemail_text;
     private EditText newemail_text;
+    private EditText password_text;
 
-    int EMAIL_SUCCESS = 1;
+    boolean EMAIL_SUCCESS = false;
     String[] email_data = {"",""};
 
     @Override
@@ -42,6 +43,7 @@ public class EmailFragment extends Fragment {
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        password_text = (EditText) getView().findViewById(R.id.input_email);
         oldemail_text = (EditText) getView().findViewById(R.id.input_oldmail);
         newemail_text = (EditText) getView().findViewById(R.id.input_newmail);
     }
@@ -58,25 +60,18 @@ public class EmailFragment extends Fragment {
         final ConstraintLayout hiddenLayout = getActivity().findViewById(R.id.verification_container);
         hiddenLayout.setVisibility(view.VISIBLE);
 
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        hiddenLayout.setVisibility(View.GONE);
-                        onEmailSuccess();
-                        //progressDialog.dismiss();
-                    }
-                }, 3000);
+        sendEmailData();
+
+        if (EMAIL_SUCCESS) { onEmailSuccess();} else onEmailFailed();
+    }
+
+    public void sendEmailData(){
+
     }
 
     public void onEmailSuccess() {
-        //Отправка и проверка данных на сервере
-        //
-        //
-        if (EMAIL_SUCCESS == 1) {
-
             Toast.makeText(getContext(), getText(R.string.email_success), Toast.LENGTH_LONG).show();
             NavHostFragment.findNavController(getParentFragment()).navigate(R.id.action_emailFragment_to_navigation_settings);
-        } else {onEmailFailed();}
     }
 
     public void onEmailFailed() {
@@ -87,6 +82,10 @@ public class EmailFragment extends Fragment {
         boolean valid = true;
 
         SharedPreferences sharedPref = getContext().getSharedPreferences("com.mirea.informatics_preferences", Context.MODE_PRIVATE);
+
+        if (!password_text.equals(sharedPref.getString("password","not set"))) {
+            password_text.setError(getText(R.string.enter_valid_password));
+        }
 
         if (email_data[0].isEmpty() || !email_data[0].equals(sharedPref.getString("email", "not set")) || !android.util.Patterns.EMAIL_ADDRESS.matcher(email_data[0]).matches()) {
             oldemail_text.setError(getText(R.string.enter_valid_email));
