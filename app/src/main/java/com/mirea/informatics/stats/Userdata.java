@@ -1,16 +1,26 @@
 package com.mirea.informatics.stats;
 
-public class Userdata {
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import androidx.fragment.app.Fragment;
+
+
+public class Userdata extends Fragment {
     String email;
     String password;
     String status;
 
-    public void setLogin(String email, String password){
-        this.email = email;
-        this.password = password;
+    Userdata(){
+
     }
 
-    public void sendLogin(){
+    public void setLogin(String Email, String Password){
+        this.email = Email;
+        this.password = Password;
+    }
+
+    public void sendLogin(String email, String password){
         //TODO Отправка данных логина
     }
 

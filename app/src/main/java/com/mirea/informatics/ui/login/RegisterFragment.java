@@ -95,8 +95,8 @@ public class RegisterFragment extends Fragment {
     }
 
     private void sendRegData(){
-        Userdata.sendReg(mail_str, password_str, group_str);
-        Userdata.getStatus();
+        //Userdata.sendReg(mail_str, password_str, group_str);
+        //Userdata.getStatus();
         // TODO: Отправка данных для регистрации на сервер
     }
 

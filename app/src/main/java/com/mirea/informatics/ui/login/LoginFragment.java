@@ -84,7 +84,6 @@ public class LoginFragment extends Fragment {
         }
 
         loadingProgressBar.setVisibility(view.VISIBLE);
-
         // TODO: Процесс логина после проверки ввода данных
         sendLoginData();
 
@@ -93,17 +92,17 @@ public class LoginFragment extends Fragment {
     }
 
     public void sendLoginData(){
-        Userdata.setLogin(mail_str, password_str);
-        Userdata.sendLogin();
-        Userdata.getStatus();
+        //Userdata.sendLogin(mail_str, password_str);
+        //Userdata.getStatus();
         //Отправка mail_str и password_str на сервер для валидации и потом присвоение LOGIN_SUCCESS необходимого значения
     }
 
     //Логика при успешнов входе
     public void onLoginSuccess() {
+        //Userdata.setLogin(password_str,mail_str);
         SharedPrefEditor = SharedPref.edit();
-        SharedPrefEditor.putString("password",password.getText().toString());
-        SharedPrefEditor.putString("email",mail.getText().toString());
+        SharedPrefEditor.putString("password",password_str);
+        SharedPrefEditor.putString("email",mail_str);
         SharedPrefEditor.apply();
         NavHostFragment.findNavController(getParentFragment()).navigate(R.id.action_loginFragment_to_navigation_home);
     }

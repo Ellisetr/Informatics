@@ -31,7 +31,6 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getActivity().getMenuInflater();
         inflater.inflate(R.menu.bar, menu);
