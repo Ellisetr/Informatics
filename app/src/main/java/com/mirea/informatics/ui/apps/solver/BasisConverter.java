@@ -287,7 +287,6 @@ public class BasisConverter {
         System.out.println(ZhegalikinIndexes);
         System.out.println(outFunction);
         System.out.println(list);
-
     }
 
     private String removeByIndex(String str, int index) {
@@ -304,5 +303,4 @@ public class BasisConverter {
         }
         return "";
     }
-
 }
