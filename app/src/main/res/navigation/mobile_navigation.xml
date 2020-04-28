@@ -21,7 +21,11 @@
         android:id="@+id/navigation_apps"
         android:name="com.mirea.informatics.ui.apps.AppsFragment"
         android:label="@string/title_apps"
-        tools:layout="@layout/fragment_apps" />
+        tools:layout="@layout/fragment_apps" >
+        <action
+            android:id="@+id/action_navigation_apps_to_solverFragment"
+            app:destination="@id/solverFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_settings"
@@ -92,4 +96,9 @@
             android:id="@+id/action_startupFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+    <fragment
+        android:id="@+id/solverFragment"
+        android:name="com.mirea.informatics.ui.apps.solver.SolverFragment"
+        android:label="fragment_solver"
+        tools:layout="@layout/fragment_solver" />
 </navigation>
