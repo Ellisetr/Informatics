@@ -9,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -99,18 +102,21 @@ public class SolverFragment extends Fragment {
             return;
         }
 
-        //LogicFunctionGenerator gen = new LogicFunctionGenerator(number_of_in_var, 1);
+        LogicFunctionGenerator gen = new LogicFunctionGenerator(number_of_in_var, 1);
 
         char[][] vectorFunctions = new char[str_input.length()][1];
 
-        //String str_input_gen = new String();
-        //for (int i = 0; i < gen.VectorFunctions.length; i++)
-        //str_input_gen += gen.VectorFunctions[i][0];
+        String str_input_gen = new String();
+
+        for (int i = 0; i < gen.VectorFunctions.length; i++)
+        str_input_gen += gen.VectorFunctions[i][0];
 
         for (int i = 0; i < str_input.length(); i++)
             vectorFunctions[i][0] = str_input.charAt(i);
-        //String[] data = convertToArray(gen.VarValues, vectorFunctions);
-        //adapter = new ArrayAdapter<String>(getContext(), R.layout.item, R.id.tvText, data);
+
+        String[] data = convertToArray(gen.VarValues, vectorFunctions);
+
+        adapter = new ArrayAdapter<String>(getContext(), R.layout.item, R.id.tvText, data);
         gvMain = (GridView) getActivity().findViewById(R.id.gridTab);
         gvMain.setNumColumns(number_of_in_var + 1);
         gvMain.setColumnWidth(80);
@@ -123,7 +129,6 @@ public class SolverFragment extends Fragment {
         for(int i = 0; i < number_of_in_var; i++){
             String varName = "x"+(i);
             VarNames[i] = varName;
-            //System.out.println(varName);
         }
 
         for(int i = 0; i < 1; i++)

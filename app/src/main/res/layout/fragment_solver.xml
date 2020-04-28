@@ -69,6 +69,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtInput" />
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtInput" >
+
+    </GridView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
