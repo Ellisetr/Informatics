@@ -51,6 +51,7 @@ public class BasisConverter {
             terms.add(buffFuncName);
             list.add(terms);
             System.out.println(list);
+            outFunction = buffFuncName;
 
 
         }else{
@@ -109,6 +110,7 @@ public class BasisConverter {
             terms.add(buffFuncName);
             terms.add("Nand");
             terms.add("~("+buffFuncName+")");
+            outFunction = "~("+buffFuncName+")";
             list.add(terms);
 
             System.out.println(list);
@@ -177,7 +179,7 @@ public class BasisConverter {
             terms.add("Nor");
             terms.add("~("+buffFuncName+")");
             list.add(terms);
-
+            outFunction = "~("+buffFuncName+")";
             System.out.println(list);
 
         }else{
@@ -204,7 +206,7 @@ public class BasisConverter {
 
                     funcName = "~("+tmp[i]+")";
                     for(int j = 0; j < t.length; j++){
-                            operands.add(t[j]);
+                        operands.add(t[j]);
                     }
                     operands.add("Nor");
                     operands.add(funcName);
@@ -217,6 +219,7 @@ public class BasisConverter {
             buffFuncName = "~("+buffFuncName+")";
             terms.add("Nor");
             terms.add(buffFuncName);
+            outFunction = buffFuncName;
             list.add(terms);
             System.out.println(list);
         }
@@ -236,51 +239,54 @@ public class BasisConverter {
         System.out.println(vectorFunc);
 
         int m = vectorFunc.size();
-        ZhegalikinIndexes.add(vectorFunc.get(0));
+        //ZhegalikinIndexes.add(vectorFunc.get(0));
 
-        for(int k = 0; k<m-1; k++) {
+        for(int k = 0; k<m; k++) {
 
-            for (int i = 1; i < vectorFunc.size(); i++) {
+            if(k == 0 && vectorFunc.get(0) == 1){
+                outFunction += "1@";
+            }
 
-                if (i == 1) {
+            System.out.println(Integer.toString(vectorFunc.get(0)));
 
-                    if(vectorFunc.get(0) == 1){
-                        operands = new ArrayList<>();
-                        String v = Integer.toBinaryString(k);
-                        System.out.println(v);
-                        String tmp = "";
-                        int y = 0;
-                        for(int l = varNames.length-v.length(); l<varNames.length; l++){
-                            if(v.charAt(y) == '1'){
-                                tmp += varNames[l]+"*";
-                                operands.add(varNames[l]);
-                            }
-                            y++;
+            if(k != 0){
+
+                if(vectorFunc.get(0) == 1){
+                    System.out.println("321");
+                    operands = new ArrayList<>();
+                    String v = Integer.toBinaryString(k);
+                    System.out.println(v);
+                    String tmp = "";
+                    int y = 0;
+                    for(int l = varNames.length-v.length(); l<varNames.length; l++){
+                        if(v.charAt(y) == '1'){
+                            tmp += varNames[l]+"*";
+                            operands.add(varNames[l]);
                         }
-                            tmp = removeByIndex(tmp,tmp.length()-1);
-
-                            if(operands.size()>1){
-                                operands.add("*");
-                                operands.add(tmp);
-                                terms.add(tmp);
-                                list.add(operands);
-                            }else{terms.add(operands.get(0));}
-
-                            outFunction += tmp+"@";
-                        System.out.println(outFunction);
+                        y++;
                     }
 
+                    tmp = removeByIndex(tmp,tmp.length()-1);
+
+                    outFunction += tmp+"@";
+                    System.out.println(outFunction);
                 }
+
+            }
+
+
+            for (int i = 1; i < vectorFunc.size(); i++) {
                 int j = vectorFunc.get(i - 1) ^ vectorFunc.get(i);
                 vectorFunc.set(i-1,j);
             }
 
             vectorFunc.remove(vectorFunc.size()-1);
             System.out.println(vectorFunc);
-            ZhegalikinIndexes.add(vectorFunc.get(0));
+            //ZhegalikinIndexes.add(vectorFunc.get(0));
+
         }
 
-        outFunction = removeByIndex(outFunction, outFunction.length()-1);
+        outFunction = removeByIndex( outFunction , outFunction .length()-1);
         terms.add("@");
         terms.add(outFunction);
         list.add(terms);
@@ -293,14 +299,5 @@ public class BasisConverter {
         return str.substring(0,index)+str.substring(index+1);
     }
 
-    public String getBooleanFunction() {
-        // return outFunction;
-        // Готовая функция - это судя по всему самый последний элемент в двумерном list.
-        if(list.size() != 0) {
-            ArrayList<String> temp_list = list.get(list.size()-1);
-            if(temp_list.size() != 0)
-                return temp_list.get(temp_list.size()-1);
-        }
-        return "";
-    }
+    public String getBooleanFunction() {return outFunction; }
 }

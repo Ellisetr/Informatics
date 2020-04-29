@@ -152,7 +152,7 @@ public class SolverFragment extends Fragment {
 
         BasisConverter converter = new BasisConverter();
         txtViewOutput = (TextView) getActivity().findViewById(R.id.txtViewOutput);
-        //converter.ToZhegalkinPolynomial(vectorFunctions,0, VarNames);
+        converter.ToZhegalkinPolynomial(vectorFunctions,0, VarNames);
         txtViewOutput.setText(sol.getSolution() + "\n" + converter.getBooleanFunction());
     }
 }
