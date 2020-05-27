@@ -13,6 +13,11 @@
         android:title="@string/title_book" />
 
     <item
+        android:id="@+id/navigation_lab"
+        android:icon="@drawable/icons8"
+        android:title="@string/title_lab" />
+
+    <item
         android:id="@+id/navigation_apps"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_apps" />
