@@ -9,33 +9,26 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.mirea.informatics.R;
 
 public class SolverFragment extends Fragment {
 
-    Button btnExec;
-    EditText edtTxtInput;
-    TextView txtViewOutput;
     int number_of_in_var;
     String[] VarNames;
     String[] OutNames;
 
     boolean MDNF = true;
 
+    EditText edtTxtInput;
+    TextView txtViewOutput;
+
     GridView gvMain;
     ArrayAdapter<String> adapter;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,7 +37,7 @@ public class SolverFragment extends Fragment {
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        btnExec = (Button) getActivity().findViewById(R.id.btnExec);
+        Button btnExec = (Button) getActivity().findViewById(R.id.btnExec);
         View.OnClickListener oclBtnExec = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,9 +130,7 @@ public class SolverFragment extends Fragment {
             OutNames[i] = outName;}
 
         Solver sol = new Solver(
-                //gen.VectorFunctions,
                 vectorFunctions,
-                //3,
                 number_of_in_var,
                 VarNames,
                 1,

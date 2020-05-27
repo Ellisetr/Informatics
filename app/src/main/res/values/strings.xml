@@ -43,7 +43,7 @@
     <string name="testWeek">Сейчас идёт \n 5 \n неделя</string>
     <string name="testExam">Дней до сессии \n 55</string>
 
-    <string name="Exam">Дней до сессии</string>
+    <string name="Exam">Недель до сессии</string>
     <string name="Week1">Текущая неделя</string>
 
     <!-- Strings related to login -->

@@ -1,12 +1,14 @@
 package com.mirea.informatics.ui.book;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebViewFragment;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,8 +24,10 @@ import androidx.navigation.ui.NavigationUI;
 import com.mirea.informatics.R;
 
 public class BookFragment extends Fragment {
+    public static WebView myWebView;
 
-    static WebView myWebView;
+    //private boolean WAS_OPENED = false;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +40,13 @@ public class BookFragment extends Fragment {
         myWebView = (WebView) getActivity().findViewById(R.id.bookreader);
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.setWebViewClient(new WebViewClient());
-        myWebView.loadUrl("file:///android_asset/test.html");
+
+        myWebView.loadUrl("file:///android_asset/loading.html");
+        Toast.makeText(getContext(), "Проверка текущей версии", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Скачивание недостающих данных", Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), "Скачивание успешно", Toast.LENGTH_SHORT).show();
+
+       //myWebView.loadUrl("file:///android_asset/tema3.html");
     }
+
 }

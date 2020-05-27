@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.mirea.informatics.ui.book.BookFragment;
 import com.mirea.informatics.ui.theme.ThemeHelper;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -74,5 +75,14 @@ public class MainActivity extends AppCompatActivity {
     public void finish() {
         super.finish();
         ActivityNavigator.applyPopAnimationsToPendingTransition(this);
+    }
+
+    @Override
+    public void onBackPressed(){
+        if(BookFragment.myWebView.canGoBack()){
+            BookFragment.myWebView.goBack();
+        } else{
+            super.onBackPressed();
+        }
     }
 }

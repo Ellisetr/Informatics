@@ -52,9 +52,9 @@ public class HomeFragment extends Fragment {
 
     public void set_student_data(){
         SharedPreferences sharedPref = getContext().getSharedPreferences("com.mirea.informatics_preferences",getContext().MODE_PRIVATE);
-        name.setText(sharedPref.getString("name","Error"));
-        email.setText(sharedPref.getString("email","Error"));
-        group.setText(sharedPref.getString("group","Error"));
+        name.setText(sharedPref.getString("name","Тебинов Никита Сергеевич"));
+        email.setText(sharedPref.getString("email","nikita.tebinov@yandex.ru"));
+        group.setText(sharedPref.getString("group","ИВБО-01-18"));
     }
 
     public void set_week(){
@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
 
     public void set_exam(){
         Calendar calender = Calendar.getInstance();
-        int days_to_exam = 16 - calender.get(Calendar.WEEK_OF_YEAR);
+        int days_to_exam = 16+7 - calender.get(Calendar.WEEK_OF_YEAR);
         String exam_data =  getText(R.string.Exam)+" "+days_to_exam;
         exam.setText(exam_data);
     }
