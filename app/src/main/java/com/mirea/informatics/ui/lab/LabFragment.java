@@ -41,15 +41,11 @@ public class LabFragment extends Fragment {
         myWebView = (WebView) getActivity().findViewById(R.id.labreader);
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.setWebViewClient(new WebViewClient());
-
         myWebView.getSettings().setBuiltInZoomControls(true);
-
         myWebView.loadUrl("file:///android_asset/loading_lab.html");
+
         Toast.makeText(getContext(), "Проверка текущей версии", Toast.LENGTH_SHORT).show();
         Toast.makeText(getContext(), "Скачивание недостающих данных", Toast.LENGTH_LONG).show();
         Toast.makeText(getContext(), "Скачивание успешно", Toast.LENGTH_SHORT).show();
-
-       //myWebView.loadUrl("file:///android_asset/tema3.html");
     }
-
 }

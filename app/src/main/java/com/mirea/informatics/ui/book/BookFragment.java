@@ -9,7 +9,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.webkit.WebViewFragment;
 import android.widget.Toast;
-
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,7 +20,6 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
-
 import com.mirea.informatics.R;
 import com.mirea.informatics.ui.book.BookFragment;
 
@@ -29,6 +27,7 @@ public class BookFragment extends Fragment {
     public static WebView myWebView;
 
     //private boolean WAS_OPENED = false;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,15 +49,11 @@ public class BookFragment extends Fragment {
         myWebView = (WebView) getActivity().findViewById(R.id.bookreader);
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.setWebViewClient(new WebViewClient());
-
         myWebView.getSettings().setBuiltInZoomControls(true);
-
         myWebView.loadUrl("file:///android_asset/loading.html");
+
         Toast.makeText(getContext(), "Проверка текущей версии", Toast.LENGTH_SHORT).show();
         Toast.makeText(getContext(), "Скачивание недостающих данных", Toast.LENGTH_LONG).show();
         Toast.makeText(getContext(), "Скачивание успешно", Toast.LENGTH_SHORT).show();
-
-       //myWebView.loadUrl("file:///android_asset/tema3.html");
     }
-
 }

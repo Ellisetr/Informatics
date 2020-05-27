@@ -3,7 +3,6 @@
     <string name="app_name">Информатика</string>
     <string name="title_home">Главная</string>
     <string name="title_book">Литература</string>
-    <string name="title_apps">Тесты</string>
     <string name="title_settings">Настройки</string>
     <string name="hint_name">Введите ФИО студента</string>
     <string name="hint_group">Введите учебную группу</string>
