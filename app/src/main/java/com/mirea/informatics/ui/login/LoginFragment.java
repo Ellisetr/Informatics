@@ -92,9 +92,7 @@ public class LoginFragment extends Fragment {
     }
 
     public void sendLoginData(){
-        //Userdata.sendLogin(mail_str, password_str);
-        //Userdata.getStatus();
-        //Отправка mail_str и password_str на сервер для валидации и потом присвоение LOGIN_SUCCESS необходимого значения
+        
     }
 
     //Логика при успешнов входе
@@ -102,6 +100,8 @@ public class LoginFragment extends Fragment {
         //Userdata.setLogin(password_str,mail_str);
         SharedPrefEditor = SharedPref.edit();
         SharedPrefEditor.putString("password",password_str);
+        SharedPrefEditor.putString("name","Тебинов Никита Сергеевич");
+        SharedPrefEditor.putString("group","ИВБО-01-18");
         SharedPrefEditor.putString("email",mail_str);
         SharedPrefEditor.apply();
         NavHostFragment.findNavController(getParentFragment()).navigate(R.id.action_loginFragment_to_navigation_home);

@@ -85,7 +85,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     public void email(){
         SharedPreferences sharedPref = getContext().getSharedPreferences("com.mirea.informatics_preferences",Context.MODE_PRIVATE);
         Preference preference1 = (Preference) findPreference("email");
-        String email = sharedPref.getString("email","not set");
+        String email = sharedPref.getString("email","ivbo0118@gmail.com");
         preference1.setSummary(email);
     }
 }

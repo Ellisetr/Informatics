@@ -21,6 +21,7 @@ import com.mirea.informatics.R;
 public class AppsFragment extends Fragment {
 
     CardView solver_btn;
+    CardView tests_btn;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +35,13 @@ public class AppsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 NavHostFragment.findNavController(getParentFragment()).navigate(R.id.action_navigation_apps_to_solverFragment);
+            }
+        });
+        tests_btn = view.findViewById(R.id.tests_btn);
+        tests_btn.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(getParentFragment()).navigate(R.id.action_navigation_apps_to_testsFragment);
             }
         });
     }

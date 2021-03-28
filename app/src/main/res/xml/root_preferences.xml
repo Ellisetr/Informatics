@@ -4,23 +4,26 @@
     <PreferenceCategory
         app:title="@string/profile_header"
         app:iconSpaceReserved="false">
-            <EditTextPreference
-                app:iconSpaceReserved="false"
-                app:key="name"
-                app:title="@string/name_title"
-                app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:summary="Тебинов Никита Сергеевич"
+            app:iconSpaceReserved="false"
+            app:key="name"
+            app:summary="Тебинов Никита Сергеевич"
+            app:title="@string/name_title"
+            app:useSimpleSummaryProvider="true" />
 
-            <Preference
-                app:iconSpaceReserved="false"
-                app:key="email"
-                app:title="@string/email_title"
-                app:summary="Not set"
-                app:useSimpleSummaryProvider="true" />
+        <Preference
+            app:iconSpaceReserved="false"
+            app:key="email"
+            app:summary="ivbo0118@gmail.com"
+            app:title="@string/email_title"
+            app:useSimpleSummaryProvider="true" />
 
             <EditTextPreference
                 app:iconSpaceReserved="false"
                 app:key="group"
                 app:title="@string/group_title"
+                app:summary="ИВБО-01-18"
                 app:useSimpleSummaryProvider="true" />
 
             <Preference

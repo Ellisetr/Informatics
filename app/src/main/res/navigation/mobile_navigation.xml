@@ -21,16 +21,19 @@
         android:id="@+id/navigation_apps"
         android:name="com.mirea.informatics.ui.apps.AppsFragment"
         android:label="@string/title_apps"
-        tools:layout="@layout/fragment_apps" >
+        tools:layout="@layout/fragment_apps">
         <action
             android:id="@+id/action_navigation_apps_to_solverFragment"
             app:destination="@id/solverFragment" />
+        <action
+            android:id="@+id/action_navigation_apps_to_testsFragment"
+            app:destination="@id/testsFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.mirea.informatics.ui.settings.SettingsFragment"
-        android:label="@string/title_settings" >
+        android:label="@string/title_settings">
         <action
             android:id="@+id/action_navigation_settings_to_passwordFragment"
             app:destination="@id/passwordFragment"
@@ -46,7 +49,7 @@
         android:id="@+id/passwordFragment"
         android:name="com.mirea.informatics.ui.settings.PasswordFragment"
         android:label="@string/change_password"
-        tools:layout="@layout/fragment_password" >
+        tools:layout="@layout/fragment_password">
         <action
             android:id="@+id/action_passwordFragment_to_navigation_settings"
             app:destination="@id/navigation_settings"
@@ -56,7 +59,7 @@
         android:id="@+id/emailFragment"
         android:name="com.mirea.informatics.ui.settings.EmailFragment"
         android:label="@string/change_email"
-        tools:layout="@layout/fragment_email" >
+        tools:layout="@layout/fragment_email">
         <action
             android:id="@+id/action_emailFragment_to_navigation_settings"
             app:destination="@id/navigation_settings" />
@@ -106,4 +109,9 @@
         android:name="com.mirea.informatics.ui.lab.LabFragment"
         android:label="@string/title_lab"
         tools:layout="@layout/fragment_lab" />
+    <fragment
+        android:id="@+id/testsFragment"
+        android:name="com.mirea.informatics.ui.apps.tests.TestsFragment"
+        android:label="Тестирование"
+        tools:layout="@layout/fragment_tests" />
 </navigation>
